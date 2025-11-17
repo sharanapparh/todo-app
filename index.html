@@ -1,2 +1,78 @@
-<h1>Todo App</h1>
-<p>Add tasks list below</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Todo App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .todo-container {
+            background: #fff;
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 80%;
+            padding: 8px;
+        }
+        button {
+            padding: 8px 10px;
+            background: #007bff;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        ul {
+            margin-top: 20px;
+            padding: 0;
+            list-style: none;
+        }
+        li {
+            background: #eaeaea;
+            margin-bottom: 8px;
+            padding: 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Todo App</h2>
+
+    <div class="todo-container">
+        <input id="taskInput" type="text" placeholder="Enter task">
+        <button onclick="addTask()">Add</button>
+
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        function addTask() {
+            let input = document.getElementById("taskInput");
+            let task = input.value;
+
+            if (task === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.textContent = task;
+
+            document.getElementById("taskList").appendChild(li);
+
+            input.value = "";
+        }
+    </script>
+
+</body>
+</html>
